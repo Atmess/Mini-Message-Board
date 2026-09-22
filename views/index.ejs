@@ -1,0 +1,17 @@
+<html>
+    <body>
+       <!-- Inside index.ejs body -->
+        <h1><%= title %></h1>
+        <a href="/new">create New</a>
+
+<ul>
+  <% messages.forEach((message)=> { %>
+    <li>
+      <strong>User:</strong> <%= message.user %> <br>
+      <strong>Message:</strong> <%= message.text %> <br>
+      <strong>Added:</strong> <%= message.added %>
+    </li>
+  <% }) %>
+</ul>
+    </body>
+</html>
