@@ -1,7 +1,13 @@
 const db = require("../db/query")
 
 async function getMessage(req,res) {
-    const messages= await db.getMessage()
+    const SearchQuery = req.query.search
+    let messages;
+    if(SearchQuery){
+        messages= await db.searchMessages(SearchQuery)
+    }else{
+        messages= await db.getMessage()
+    }
     res.render("index", { title: "Mini Messageboard", messages:messages})
 }
 
@@ -20,5 +26,6 @@ async function DeleteMessagePost(req,res) {
     await db.DeleteMessage(messagesid)
     res.redirect("/");
 }
+
 
 module.exports={getMessage,CreateMessageGet,CreateMessagePost,DeleteMessagePost}

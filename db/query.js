@@ -14,4 +14,15 @@ async function  DeleteMessage(UserId) {
     await Pool.query("DELETE FROM messages WHERE id = $1",[UserId])
 }
 
-module.exports={getMessage,InsertMesssage,DeleteMessage}
+async function searchMessages(searchTerm) {
+    // Correct: Destructuring { rows } here too!
+    const { rows } = await Pool.query(
+        "SELECT * FROM messages WHERE username ILIKE $1", 
+        [`%${searchTerm}%`]
+    );
+    return rows;
+}
+
+// Don't forget to export it!
+
+module.exports={getMessage,InsertMesssage,DeleteMessage,searchMessages}

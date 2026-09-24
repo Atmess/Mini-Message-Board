@@ -4,6 +4,10 @@
         <h1><%= title %></h1>
         <a href="/new">create New</a>
 
+        <form action="/" method="GET">
+  <input type="text" name="search" placeholder="Search usernames...">
+  <button type="submit">Search</button>
+</form>
 <ul>
   <% messages.forEach((message)=> { %>
     <li>
