@@ -11,6 +11,10 @@
       <strong>Message:</strong> <%= message.text %> <br>
       <strong>Added:</strong> <%= message.added %>
     </li>
+    <!-- Add this Delete Form -->
+    <form action="/delete/<%= message.id %>" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   <% }) %>
 </ul>
     </body>

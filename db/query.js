@@ -7,7 +7,11 @@ async function getMessage() {
 }
 
 async function InsertMesssage(username, text) {
-       await Pool.query("INSERT INTO messages VALUES($1,$2) ",[username,text])
+       await Pool.query("INSERT INTO messages (username, text) VALUES($1,$2) ",[username,text])
 }
 
-module.exports={getMessage,InsertMesssage}
+async function  DeleteMessage(UserId) {
+    await Pool.query("DELETE FROM messages WHERE id = $1",[UserId])
+}
+
+module.exports={getMessage,InsertMesssage,DeleteMessage}

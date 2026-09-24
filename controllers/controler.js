@@ -2,7 +2,7 @@ const db = require("../db/query")
 
 async function getMessage(req,res) {
     const messages= await db.getMessage()
-    res.send('index', { title: "Mini Messageboard", messages:messages})
+    res.render("index", { title: "Mini Messageboard", messages:messages})
 }
 
 async function CreateMessageGet(req,res) {
@@ -15,4 +15,10 @@ async function CreateMessagePost(req,res) {
     res.redirect("/");
 }
 
-module.exports={getMessage,CreateMessageGet,CreateMessagePost}
+async function DeleteMessagePost(req,res) {
+    const messagesid = req.params.id
+    await db.DeleteMessage(messagesid)
+    res.redirect("/");
+}
+
+module.exports={getMessage,CreateMessageGet,CreateMessagePost,DeleteMessagePost}

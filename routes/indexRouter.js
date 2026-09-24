@@ -9,6 +9,7 @@ const usercontroler = require("../controllers/controler")
 indexRouter.get("/",usercontroler.getMessage)
 indexRouter.get("/new",usercontroler.CreateMessageGet)
 indexRouter.post("/new",usercontroler.CreateMessagePost)
+indexRouter.post("/delete/:id",usercontroler.DeleteMessagePost)
 
 
 module.exports=indexRouter;
