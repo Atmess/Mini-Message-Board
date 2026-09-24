@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/Atmess/Mini-Message-Board#readme",
   "dependencies": {
+    "dotenv": "^18.0.3",
     "ejs": "^6.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
   }
 }
